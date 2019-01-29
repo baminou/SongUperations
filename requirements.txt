@@ -1,0 +1,4 @@
+requests==2.19.1
+setuptools==40.0.0
+uperations_base==0.0.20
+uperations_kernel==0.0.10
