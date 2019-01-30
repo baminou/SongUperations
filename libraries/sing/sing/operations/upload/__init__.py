@@ -23,8 +23,10 @@ class Upload(Singoperationtype):
         return
 
     def _before_start(self):
+        super(Upload,self)._before_start()
         if not os.environ.get(self.args.access_token_variable):
             raise Exception("Your environment does not contain variable: %s" % (self.args.access_token_variable))
+        return True
 
     def _run(self):
         access_token = os.environ.get(self.args.access_token_variable)

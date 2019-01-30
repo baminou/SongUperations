@@ -20,6 +20,7 @@ class Singoperationtype(Operation):
                 return True
         except Exception as err:
             raise Exception("The song server %s is not a valid song server: %s" % (self.args.song_server, str(err)))
+        return False
 
     def _on_running(self):
         super(Singoperationtype, self)._on_running()
