@@ -2,9 +2,10 @@
 from uperations.library import Library
 from .operations.upload import Upload
 from .operations.save import Save
-from .operations.manifest import Manifest
+from .operations.create_manifest import CreateManifest
 from .operations.publish import Publish
 from .operations.status import Status
+from .operations.validate import Validate
 
 class sing(Library):
 
@@ -20,9 +21,10 @@ class sing(Library):
         self._operations = {
             'upload': Upload(self),
             'save': Save(self),
-            'manifest': Manifest(self),
+            'manifest': CreateManifest(self),
             'publish': Publish(self),
-            'status': Status(self)
+            'status': Status(self),
+            'validate': Validate(self)
         }
         return
 

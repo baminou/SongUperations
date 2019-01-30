@@ -96,3 +96,11 @@ song_server  URL of the SONG server
 study        ICGC study ID
 upload_id    Upload ID
 ```
+
+### validate
+
+Check if a payload is valid
+
+```python
+./uperation sing validate -h
+payload     Path to JSON payload
