@@ -30,11 +30,12 @@ class Upload(Singoperationtype):
 
     def _run(self):
         access_token = os.environ.get(self.args.access_token_variable)
-        payload = json.load(self.args.payload)
+        headers={'Auhorization':'Bearer '+access_token,'Content-Type':'application/json','Accept':'application/json'}
+        payload = {'json_payload':json.load(self.args.payload)}
 
-        response = requests.post('%s/upload/%s' % (self.args.song_server,self.args.study),data=payload,headers={'Auhorization':'Bearer '+access_token})
+        response = requests.post('%s/upload/%s' % (self.args.song_server,self.args.study),data=payload,headers=headers)
 
         if response.status_code == 201:
             return response.json()
         else:
-            raise Exception(response.text)
+            raise Exception(response.json().get('message'))
