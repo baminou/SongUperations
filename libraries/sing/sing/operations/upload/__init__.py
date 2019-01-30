@@ -22,6 +22,10 @@ class Upload(Singoperationtype):
         main_parser.add_argument('payload', type=argparse.FileType('r'), help="Path to payload.json")
         return
 
+    def _before_start(self):
+        if not os.environ.get(self.args.access_token_variable):
+            raise Exception("Your environment does not contain variable: %s" % (self.args.access_token_variable))
+
     def _run(self):
         access_token = os.environ.get(self.args.access_token_variable)
         payload = json.load(self.args.payload)
