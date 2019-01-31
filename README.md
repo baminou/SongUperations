@@ -97,6 +97,17 @@ study        ICGC study ID
 upload_id    Upload ID
 ```
 
+### search
+
+Retrieve an analysis ID
+
+```python
+./uperation sing search -h
+song_server     URL of the SONG server
+study           ICGC study ID
+analysis_id     Analysis ID to retrieve
+```
+
 ### validate
 
 Check if a payload is valid
@@ -104,3 +115,4 @@ Check if a payload is valid
 ```python
 ./uperation sing validate -h
 payload     Path to JSON payload
+```

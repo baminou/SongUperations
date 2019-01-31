@@ -6,6 +6,7 @@ from .operations.create_manifest import CreateManifest
 from .operations.publish import Publish
 from .operations.status import Status
 from .operations.validate import Validate
+from .operations.search import Search
 
 class sing(Library):
 
@@ -23,6 +24,7 @@ class sing(Library):
             'save': Save(self),
             'manifest': CreateManifest(self),
             'publish': Publish(self),
+            'search': Search(self),
             'status': Status(self),
             'validate': Validate(self)
         }
