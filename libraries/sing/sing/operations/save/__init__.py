@@ -22,6 +22,6 @@ class Save(Singoperationtype):
     def _run(self):
         access_token = os.environ.get(self.args.access_token_variable)
         response = requests.post('%s/upload/%s/save/%s' % (self.song_server, self.args.study,self.args.upload_id),headers={'Authorization':'Bearer '+access_token})
-        if not response.status_code == 201:
+        if not response.status_code >= 200 and not response.status_code <=204:
             raise Exception(response.text)
         return response.json()

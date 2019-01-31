@@ -24,7 +24,7 @@ class Publish(Singoperationtype):
         response = requests.put('%s/studies/%s/analysis/publish/%s' % (self.song_server,self.args.study,self.args.analysis_id),headers={'Authorization':'Bearer '+access_token,'Content-Type':'application/json','Accept':'application/json'})
 
         if not response.status_code == 201:
-            raise Exception(response.text)
+            raise Exception(response.json().get('message'))
 
         print(response.json())
 
