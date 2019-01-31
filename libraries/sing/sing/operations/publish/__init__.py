@@ -1,6 +1,7 @@
 
 from ...operation_types.SingOperationType import Singoperationtype
 import requests
+import os
 
 class Publish(Singoperationtype):
 
@@ -19,9 +20,12 @@ class Publish(Singoperationtype):
         return
 
     def _run(self):
-        response = requests.put('%s/studies/%s/analysis/publish/%s' % (self.song_server,self.args.study,self.args.analysis_id),headers={'Authorization':'Bearer '+self.args.access_token_variable})
+        access_token = os.environ.get(self.args.access_token_variable)
+        response = requests.put('%s/studies/%s/analysis/publish/%s' % (self.song_server,self.args.study,self.args.analysis_id),headers={'Authorization':'Bearer '+access_token,'Content-Type':'application/json','Accept':'application/json'})
 
         if not response.status_code == 201:
             raise Exception(response.text)
+
+        print(response.json())
 
         return response.json()
