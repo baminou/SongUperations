@@ -35,7 +35,7 @@ class Upload(Singoperationtype):
 
         response = requests.post('%s/upload/%s' % (self.args.song_server,self.args.study),data=payload,headers=headers)
 
-        if response.status_code == 201:
+        if response.status_code == 200:
             print(response.json())
             return response.json()
         else:

@@ -22,4 +22,5 @@ class Status(Singoperationtype):
         response = requests.get('%s/upload/%s/status/%s' % (self.song_server,self.args.study,self.args.upload_id))
         if not response.status_code == 200:
             raise Exception(response.text)
+        print(json.dumps(response.json()))
         return response.json()
