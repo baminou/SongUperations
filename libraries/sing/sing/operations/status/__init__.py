@@ -20,6 +20,6 @@ class Status(Singoperationtype):
 
     def _run(self):
         response = requests.get('%s/upload/%s/status/%s' % (self.song_server,self.args.study,self.args.upload_id))
-        if not response.status_code == 201:
+        if not response.status_code == 200:
             raise Exception(response.text)
         return response.json()
