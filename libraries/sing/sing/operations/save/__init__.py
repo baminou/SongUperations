@@ -24,4 +24,5 @@ class Save(Singoperationtype):
         response = requests.post('%s/upload/%s/save/%s' % (self.song_server, self.args.study,self.args.upload_id),headers={'Authorization':'Bearer '+access_token})
         if not response.status_code >= 200 and not response.status_code <=204:
             raise Exception(response.text)
+        print(response.json())
         return response.json()
