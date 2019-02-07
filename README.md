@@ -41,19 +41,19 @@ export ICGC_ACCESS_TOKEN=`My Token`
 
 Upload a payload to a SONG server
 
-```python
+```bash
 ./uperation sing upload -h
-    --song-url          song_url        URL of the SONG server
-    --access-token      access_token    Access token global variable name
-    --study             study           ICGC study ID
-    -p/--payload        payload         Path to {payload}.json
+--song-url          song_url        URL of the SONG server
+--access-token      access_token    Access token global variable name
+--study             study           ICGC study ID
+-p/--payload        payload         Path to {payload}.json
 ```
 
 ### save
 
 Save a payload on a SONG server
 
-```python
+```bash
 ./uperation sing save -h
 --song-url          song_url        URL of the SONG server
 --access-token      access_token    Access token global variable name
@@ -65,7 +65,7 @@ Save a payload on a SONG server
 
 Generate a manifest file from analysis ID
 
-```python
+```bash
 ./uperation sing manifest -h
 --song-url          song_url       URL of the SONG server
 --study             study          ICGC study ID
@@ -78,7 +78,7 @@ Generate a manifest file from analysis ID
 
 Publish an existing analysis
 
-```python
+```bash
 ./uperation sing publish -h
 --song-url          song_url        URL of the SONG server
 --study             study           ICGC study ID
@@ -90,7 +90,7 @@ Publish an existing analysis
 
 Show the status of an existing upload
 
-```python
+```bash
 ./uperation sing status -h
 --song-url          song_url     URL of the SONG server
 --study             study        ICGC study ID
@@ -101,7 +101,7 @@ Show the status of an existing upload
 
 Retrieve an analysis ID
 
-```python
+```bash
 ./uperation sing search -h
 --song-url          song_url     URL of the SONG server
 --study             study        ICGC study ID
@@ -112,7 +112,7 @@ Retrieve an analysis ID
 
 Check if a payload is valid
 
-```python
+```bash
 ./uperation sing validate -h
 payload     Path to JSON payload
 ```
