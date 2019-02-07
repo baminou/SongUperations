@@ -43,10 +43,10 @@ Upload a payload to a SONG server
 
 ```python
 ./uperation sing upload -h
---song-url          song_url        URL of the SONG server
---access-token      access_token    Access token global variable name
---study             study           ICGC study ID
--p/--payload        payload         Path to {payload}.json
+    --song-url          song_url        URL of the SONG server
+    --access-token      access_token    Access token global variable name
+    --study             study           ICGC study ID
+    -p/--payload        payload         Path to {payload}.json
 ```
 
 ### save
