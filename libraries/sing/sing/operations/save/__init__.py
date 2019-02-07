@@ -1,10 +1,12 @@
 
 from ...operation_types.SingOperationType import Singoperationtype
+from ...operation_types.AccessTokenOperationType import Accesstokenoperationtype
+from ...operation_types.StudyOperationType import Studyoperationtype
 import requests
 import os
 import json
 
-class Save(Singoperationtype):
+class Save(Singoperationtype, Studyoperationtype, Accesstokenoperationtype):
 
     @staticmethod
     def name():
@@ -15,14 +17,11 @@ class Save(Singoperationtype):
         return "Save a SONG upload ID."
 
     def _parser(self, main_parser):
-        main_parser.add_argument('access_token', help="SONG access token")
-        main_parser.add_argument('study', help="ICGC study ID")
-        main_parser.add_argument('upload_id', help="Upload ID")
+        main_parser.add_argument('-u','--upload-id',dest='upload_id', help="Upload ID", required=True)
         return
 
     def _run(self):
-        access_token = self.args.access_token
-        response = requests.post('%s/upload/%s/save/%s' % (self.song_server, self.args.study,self.args.upload_id),headers={'Authorization':'Bearer '+access_token})
+        response = requests.post('%s/upload/%s/save/%s' % (self.song_url, self.study,self.args.upload_id),headers={'Authorization':'Bearer '+self.access_token})
         if not response.status_code >= 200 and not response.status_code <=204:
             raise Exception(response.text)
         print(json.dumps(response.json()))

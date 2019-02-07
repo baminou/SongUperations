@@ -1,10 +1,11 @@
 
 from ...operation_types.SingOperationType import Singoperationtype
+from ...operation_types.StudyOperationType import Studyoperationtype
 import requests
 import os
 import argparse
 
-class CreateManifest(Singoperationtype):
+class CreateManifest(Singoperationtype, Studyoperationtype):
 
     @staticmethod
     def name():
@@ -15,14 +16,13 @@ class CreateManifest(Singoperationtype):
         return "Generate manifest file for upload"
 
     def _parser(self, main_parser):
-        main_parser.add_argument('study', help="ICGC study ID")
-        main_parser.add_argument('analysis_id', help="Analysis ID")
-        main_parser.add_argument('files_dir', help="Directory where files are located")
-        main_parser.add_argument('manifest_file', type=argparse.FileType('w'), help="Output manifest path")
+        main_parser.add_argument('-a','--analysis-id',dest='analysis_id', help="Analysis ID")
+        main_parser.add_argument('-d','--files-dir',dest='files_dir', help="Directory where files are located")
+        main_parser.add_argument('-m','--manifest',dest='manifest_file', type=argparse.FileType('w'), help="Output manifest path")
         return
 
     def _run(self):
-        response = requests.get('%s/studies/%s/analysis/%s' % (self.song_server,self.args.study,self.args.analysis_id))
+        response = requests.get('%s/studies/%s/analysis/%s' % (self.song_url,self.study,self.args.analysis_id))
 
         if not response.status_code == 200:
             raise Exception(response.text)
