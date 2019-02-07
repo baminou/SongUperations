@@ -43,10 +43,10 @@ Upload a payload to a SONG server
 
 ```python
 ./uperation sing upload -h
-song_server             URL of the SONG server
-access_token_variable   Access token global variable name
-study                   ICGC study ID
-payload                 Path to {payload}.json
+--song-url          song_url        URL of the SONG server
+--access-token      access_token    Access token global variable name
+--study             study           ICGC study ID
+-p/--payload        payload         Path to {payload}.json
 ```
 
 ### save
@@ -55,10 +55,10 @@ Save a payload on a SONG server
 
 ```python
 ./uperation sing save -h
-song_server             URL of the SONG server
-access_token_variable   Access token global variable name
-study                   ICGC study ID
-upload_id               Upload ID provided by song after upload
+--song-url          song_url        URL of the SONG server
+--access-token      access_token    Access token global variable name
+--study             study           ICGC study ID
+-u/--upload-id      upload_id       Upload ID from SONG
 ```
 
 ### manifest
@@ -67,11 +67,11 @@ Generate a manifest file from analysis ID
 
 ```python
 ./uperation sing manifest -h
-song_server    URL of the SONG server
-study          ICGC study ID
-analysis_id    Analysis ID
-files_dir      Directory where files are located
-manifest_file  Output manifest path
+--song-url          song_url       URL of the SONG server
+--study             study          ICGC study ID
+-a/--analysis-id    analysis_id    Analysis ID
+-d/--files-dir      files_dir      Directory where files are located
+-m/--manifest       manifest_file  Output manifest path
 ```
 
 ### publish
@@ -80,10 +80,10 @@ Publish an existing analysis
 
 ```python
 ./uperation sing publish -h
-  song_server               URL of the SONG server
-  access_token_variable     Access token global variable name
-  study                     ICGC study ID
-  analysis_id               Analysis ID
+--song-url          song_url        URL of the SONG server
+--study             study           ICGC study ID
+--access-token      access_token    Access token global variable name
+-a/--analysis-id    analysis_id     Analysis ID
 ```
 
 ### status
@@ -92,9 +92,9 @@ Show the status of an existing upload
 
 ```python
 ./uperation sing status -h
-song_server  URL of the SONG server
-study        ICGC study ID
-upload_id    Upload ID
+--song-url          song_url     URL of the SONG server
+--study             study        ICGC study ID
+-u/--upload-id      upload_id    Upload ID from SONG
 ```
 
 ### search
@@ -103,9 +103,9 @@ Retrieve an analysis ID
 
 ```python
 ./uperation sing search -h
-song_server     URL of the SONG server
-study           ICGC study ID
-analysis_id     Analysis ID to retrieve
+--song-url          song_url     URL of the SONG server
+--study             study        ICGC study ID
+-a/--analysis-id    analysis_id  Analysis ID to retrieve
 ```
 
 ### validate
