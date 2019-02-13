@@ -1,4 +1,4 @@
 requests>=2.20.0
 setuptools==40.0.0
 uperations_base==0.0.21
-uperations_kernel==0.0.11
+uperations_kernel==0.0.12
