@@ -24,6 +24,7 @@ class Accesstokenoperationtype(Operation):
 
     def _on_error(self, exception):
         super(Accesstokenoperationtype, self)._on_error(exception)
+        exit(1)
         return True
 
     def _on_completed(self):

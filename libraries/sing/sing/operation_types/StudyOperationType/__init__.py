@@ -22,6 +22,7 @@ class Studyoperationtype(Operation):
 
     def _on_error(self, exception):
         super(Studyoperationtype, self)._on_error(exception)
+        exit(1)
         return True
 
     def _on_completed(self):
