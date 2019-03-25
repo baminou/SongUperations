@@ -2,7 +2,9 @@
 
 ## Sing Uperations
 
-This python client tools is used to work with a [https://github.com/overture-stack/SONG](Song server)
+This Project is built using Uperations Framework [https://github.com/baminou/uperations].
+
+This python client tools is used to work with a [https://github.com/overture-stack/SONG] (Song server).
 
 
 * Operations: An action that has to be executed.
